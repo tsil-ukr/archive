@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v4
         with:
-          node-version: "21.x"
+          node-version: 20
       - run: |
           npm i -g xdocs
           npm i -g sass
-          git clone https://github.com/tsil-ukr/archive-static .будування
-          git clone https://github.com/tsil-ukr/website .вебсайт
+          git clone git://github.com/tsil-ukr/archive-static.git .будування
+          git clone git://github.com/tsil-ukr/website.git .вебсайт
           bash згенерувати.sh
           cd .будування
           git config user.name kohutd
