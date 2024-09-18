@@ -7,12 +7,10 @@ on:
 jobs:
   deploy:
     name: Push to static repository
-    permissions:
-      deployments: write
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
-    with:
-      script: |
-        ls -la
-        git clone https://github.com/tsil-ukr/website .вебсайт
+    steps:
+      - uses: actions/checkout@v2
+      - name: push
+        run: |
+          ls -la
+          git clone https://github.com/tsil-ukr/website .вебсайт
