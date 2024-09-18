@@ -25,6 +25,10 @@ jobs:
           npm i -g xdocs
           npm i -g sass
           bash згенерувати.sh
+          cd .будування
+          git config --local user.name "kohutd"
+          git config --local user.email "davyd.kohut@gmail.com"
+          git commit -a -m "!"
       - uses: ad-m/github-push-action@master
         with:
           branch: main
