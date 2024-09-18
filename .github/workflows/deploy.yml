@@ -9,19 +9,28 @@ jobs:
     name: Build and push to static repository
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: "tsil-ukr/archive-static"
+          path: ".будування"
+      - uses: actions/checkout@v4
+        with:
+          repository: "tsil-ukr/website"
+          path: ".вебсайт"
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: |
+        run: |
           npm i -g xdocs
           npm i -g sass
-          git clone git://github.com/tsil-ukr/archive-static.git .будування
-          git clone git://github.com/tsil-ukr/website.git .вебсайт
           bash згенерувати.sh
-          cd .будування
-          git config user.name kohutd
-          git config user.email davyd.kohut@gmail.com
-          git add .
-          git commit -m "🧬"
-          git push
+      - uses: appleboy/git-push-action@v0.0.2
+        with:
+          author_email: davyd.kohut@gmail.com
+          author_name: kohutd
+          branch: main
+          commit: true
+          commit_message: "🧬"
+          remote: git@github.com:tsil-ukr/archive-static.git
+          ssh_key: ${{ secrets.SSH_DEPLOY_KEY }}
