@@ -34,4 +34,5 @@ jobs:
           branch: main
           directory: ".будування"
           repository: "tsil-ukr/archive-static"
-          github_token: ${{ secrets.TSIL_UKR_GITHUB_TOKEN }}
+          ssh: true
+          github_token: ${{ secrets.SSH_DEPLOY_KEY }}
