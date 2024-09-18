@@ -20,6 +20,8 @@ jobs:
           git clone https://github.com/tsil-ukr/website .вебсайт
           bash згенерувати.sh
           cd .будування
+          git config user.name kohutd
+          git config user.email davyd.kohut@gmail.com
           git add .
           git commit -m "🧬"
           git push
