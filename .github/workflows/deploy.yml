@@ -25,12 +25,9 @@ jobs:
           npm i -g xdocs
           npm i -g sass
           bash згенерувати.sh
-      - uses: appleboy/git-push-action@v0.0.2
+      - uses: ad-m/github-push-action@master
         with:
-          author_email: davyd.kohut@gmail.com
-          author_name: kohutd
           branch: main
-          commit: true
-          commit_message: "🧬"
-          remote: git@github.com:tsil-ukr/archive-static.git
-          ssh_key: ${{ secrets.SSH_DEPLOY_KEY }}
+          directory: ".будування"
+          repository: "tsil-ukr/archive-static"
+          github_token: ${{ secrets.TSIL_UKR_GITHUB_TOKEN }}
