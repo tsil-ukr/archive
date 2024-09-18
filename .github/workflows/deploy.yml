@@ -1,4 +1,4 @@
-name: Static repository Deploy
+name: Static Deploy
 
 on:
   push:
@@ -6,11 +6,16 @@ on:
       - main
 jobs:
   deploy:
-    name: Push to static repository
+    name: Build and push to static repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: push
+      - name: build and push
         run: |
-          ls -la
+          git clone https://github.com/tsil-ukr/archive-static .будування
           git clone https://github.com/tsil-ukr/website .вебсайт
+          bash згенерувати.sh
+          cd .будування
+          git add .
+          git commit -m "🧬"
+          git push
